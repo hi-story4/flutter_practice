@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterwork/theme.dart';
-import 'package:flutterwork/pages/home_page.dart';
-import 'package:flutterwork/pages/login_page.dart';
+import 'package:flutterwork/components/shoppingcart_header.dart';
+import 'package:flutterwork/components/shoppingcart_detail.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,11 +13,44 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: theme(),
-      initialRoute: '/login',
-      routes: {
-        '/login': (context) => Loginpage(),
-        '/home': (context) => Homepage(),
-      },
+      home: ShoppingCartPage(),
+    );
+  }
+}
+
+class ShoppingCartPage extends StatelessWidget {
+  const ShoppingCartPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: _buildShoppingCartAppBar(),
+      body: Column(
+        children: [
+          ShoppingCartHeader(),
+          ShoppingCartDetail(),
+        ],
+      ),
+    );
+  }
+
+  AppBar _buildShoppingCartAppBar() {
+    return AppBar(
+      iconTheme: IconThemeData(color: Colors.black),
+      leading: IconButton(
+        icon: Icon(Icons.arrow_back_ios),
+        onPressed: () {},
+      ),
+      actions: [
+        IconButton(
+          icon: Icon(Icons.shopping_cart),
+          onPressed: () {},
+        ),
+        SizedBox(
+          width: 16,
+        )
+      ],
+      elevation: 0.0,
     );
   }
 }
