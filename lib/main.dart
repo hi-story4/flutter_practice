@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_practice/pages/home_page.dart';
+import 'package:flutter_practice/screens/main_screean.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      theme: ThemeData(
+          appBarTheme: AppBarTheme(
+            elevation: 0.0,
+            backgroundColor: Colors.white,
+            titleTextStyle: TextStyle(color: Colors.black, fontSize: 24),
+          ),
+          iconTheme: IconThemeData(color: Colors.black)),
+      home: MainScreen(),
     );
   }
 }
